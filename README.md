@@ -99,13 +99,13 @@
 
 ## 📁 Repository 폴더 구조
 ```
-{Github ID}/{month}/{week_X}/{플랫폼-코드.cpp}
+{Github ID}/{year_month}/{week_X}/{플랫폼-코드.cpp}
 ```
 
 ```
 📂 SSAFY-13th-Embedded-Algorithm-Study
  ├── 📂 gyeongpunch
- │    ├── 📂 02
+ │    ├── 📂 2025_02
  │    │    ├── 📂 week_1
  │    │    │    ├── 📄 SWEA-다트게임.cpp
  │    │    │    ├── 📄 BOJ-12345.cpp
@@ -114,7 +114,7 @@
  │    │    │    ├── 📄 SWEA-문제제목.cpp
  │    │    │    ├── 📄 BOJ-67890.cpp
  │    │    │    ├── 📄 SOFTEER-AnotherProblem.cpp
- │    ├── 📂 03
+ │    ├── 📂 2025_03
  │    │    ├── 📂 week_1
  │    │    │    ├── 📄 SWEA-새로운문제.cpp
  │    │    │    ├── 📄 BOJ-11223.cpp
