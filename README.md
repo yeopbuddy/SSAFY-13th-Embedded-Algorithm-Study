@@ -47,7 +47,7 @@
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/gyeongpunch"><b>gyeongpunch</b></a></td>
-    <td align="center"><a href="https://github.com/gyeongpunch"><b>gyeongpunch</b></a></td>
+    <td align="center"><a href="https://github.com/gyeongpunch"><b>KimMinjuAstro</b></a></td>
     <td align="center"><a href="https://github.com/gyeongpunch"><b>gyeongpunch</b></a></td>
     <td align="center"><a href="https://github.com/gyeongpunch"><b>gyeongpunch</b></a></td>
   </tr>
