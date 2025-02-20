@@ -60,19 +60,19 @@
   <tr>
     <td align="center"><a href="https://github.com/yeopbuddy"><img src="https://i.ibb.co/hG3n0VL/WIN-20240530-16-04-29-Pro.jpg" width ="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/gyeongpunch"><img src="https://avatars.githubusercontent.com/gyeongpunch" width="130px;" alt=""></a></td>
-    <td align="center"><a href="https://github.com/gyeongpunch"><img src="https://avatars.githubusercontent.com/gyeongpunch" width="130px;" alt=""></a></td>
+    <td align="center"><a href="https://github.com/sohyunzzq"><img src="https://avatars.githubusercontent.com/sohyunzzq" width="130px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/gyeongpunch"><img src="https://avatars.githubusercontent.com/gyeongpunch" width="130px;" alt=""></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/gyeongpunch"><b>yeopbuddy</b></a></td>
+    <td align="center"><a href="https://github.com/yeopbuddy"><b>yeopbuddy</b></a></td>
     <td align="center"><a href="https://github.com/gyeongpunch"><b>gyeongpunch</b></a></td>
-    <td align="center"><a href="https://github.com/gyeongpunch"><b>gyeongpunch</b></a></td>
+    <td align="center"><a href="https://github.com/sohyunzzq"><b>sohyunzzq</b></a></td>
     <td align="center"><a href="https://github.com/gyeongpunch"><b>gyeongpunch</b></a></td>
   </tr>
   <tr> 
     <td align="center"><img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=C%2B%2B&logoColor=white"><br/><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></td>
     <td align="center"><img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=C%2B%2B&logoColor=white"></td>
-    <td align="center"><img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=C%2B%2B&logoColor=white"></td>
+    <td align="center"><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"></td>
     <td align="center"><img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=C%2B%2B&logoColor=white"></td>
   </tr> 
 </table>
