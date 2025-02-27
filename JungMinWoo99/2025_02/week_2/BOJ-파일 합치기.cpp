@@ -1,104 +1,87 @@
-#include <algorithm>
-#include <climits>
-#include <iostream>
-#include <string>
 #include <vector>
+#include <iostream>
+#include <algorithm>
+
+#include <climits>
+
+#define TRUE (1)
+#define FALSE (0)
 
 using namespace std;
-using IntP = pair<int, int>;
 
-#define DIR_NUM (4)
+class Book
+{
+private:
+    int ch_num;
+    vector<int> ch_size_arr;
+    // ch.1 ~ch.idx 까지 합
+    vector<int> prefix_sum_arr;
+    // DP[N][M] = ch.N ~ch.M 까지 병합하기 위한 최소 비용
+    vector<vector<int>> DP;
+    void initTable()
+    {
+        for (int i = 0; i <= ch_num; i++)
+            DP[i][i] = 0;
 
-// 시계방향 회전 배열
-int dy[] = {1, 0, -1, 0};
-int dx[] = {0, -1, 0, 1};
-
-class Hongjun {
-   private:
-    int cur_dir = 0;
-    vector<IntP> move_record;
-
-    int min_y;
-    int min_x;
-
-    IntP getBoardSize() {
-        min_y = INT_MAX;
-        min_x = INT_MAX;
-        int max_y = INT_MIN;
-        int max_x = INT_MIN;
-        for (auto i : move_record) {
-            if (min_y > i.first)
-                min_y = i.first;
-            if (min_x > i.second)
-                min_x = i.second;
-
-            if (max_y < i.first)
-                max_y = i.first;
-            if (max_x < i.second)
-                max_x = i.second;
-        }
-
-        return make_pair(max_y - min_y + 1, max_x - min_x + 1);
-    }
-
-   public:
-    Hongjun() : move_record(0) {
-        move_record.push_back(make_pair(0, 0));
-    }
-
-    void moving(char m) {
-        switch (m) {
-            case 'F': {
-                IntP cur_pos = move_record.back();
-                move_record.push_back(make_pair(cur_pos.first + dy[cur_dir], cur_pos.second + dx[cur_dir]));
-                break;
-            }
-            case 'R': {
-                cur_dir += 1;
-                cur_dir %= DIR_NUM;
-                break;
-            }
-            case 'L': {
-                cur_dir += 3;
-                cur_dir %= DIR_NUM;
-                break;
-            }
-            default:
-                break;
+        prefix_sum_arr[0] = ch_size_arr[0];
+        for (int i = 1; i <= ch_num; i++)
+        {
+            prefix_sum_arr[i] = ch_size_arr[i] + prefix_sum_arr[i - 1];
         }
     }
 
-    void draw(vector<vector<char>>& buf) {
-        IntP size = getBoardSize();
-        
-        int size_y = size.first;
-        int size_x = size.second;
-        // cout<<size_y<<' '<<size_x<<endl;
-        buf.resize(size_y);
-        for (auto &v : buf)
-            v.resize(size_x, '#');
-        for (auto r : move_record)
-            buf[r.first - min_y][r.second - min_x] = '.';
+    int getPrefixSum(int s, int e)
+    {
+        return prefix_sum_arr[e] - prefix_sum_arr[s - 1];
+    }
+
+    void updateDP(int s, int e)
+    {
+        int cost = getPrefixSum(s, e);
+        for (int i = s; i < e; i++)
+            DP[s][e] = min(DP[s][e], DP[s][i] + DP[i + 1][e] + cost);
+    }
+
+public:
+    Book(int cn) : ch_num(cn), ch_size_arr(cn + 1), prefix_sum_arr(cn + 1), DP(cn + 1, vector<int>(cn + 1, INT_MAX))
+    {
+        ch_size_arr[0] = 0;
+        for (int i = 1; i <= ch_num; i++)
+            cin >> ch_size_arr[i];
+    }
+
+    int merge()
+    {
+        initTable();
+        for (int i = 1; i <= ch_num; i++)
+            for (int l = i; l >= 1; l--)
+                updateDP(l, i);
+        return DP[1][ch_num];
+    }
+
+    void printDP()
+    {
+        for (int i = 1; i <= ch_num; i++)
+        {
+            for (int l = 1; l <= ch_num; l++)
+                cout << DP[i][l] << ' ';
+            cout << endl;
+        }
     }
 };
-main(void) {
-    Hongjun hong;
-    int N;
-    cin >> N;
-    string in;
-    cin >> in;
-    for (int i = 0; i < N; i++)
-        hong.moving(in[i]);
 
-    vector<vector<char>> buf;
-    hong.draw(buf);
-
-    for(int i = 0;i<buf.size();i++)
+int main(void)
+{
+    int T;
+    cin >> T;
+    for (int tc = 0; tc < T; tc++)
     {
-        for(int l = 0;l<buf[0].size();l++)
-            cout<< buf[i][l];
-        if(i!=buf.size()-1)
-            cout<<endl;
+        int K;
+        cin >> K;
+        Book m(K);
+        int answer = m.merge();
+        // m.printDP();
+        cout << answer << endl;
     }
 
     return 0;
