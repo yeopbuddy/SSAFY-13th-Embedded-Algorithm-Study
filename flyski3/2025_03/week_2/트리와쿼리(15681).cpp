@@ -8,19 +8,17 @@ using namespace std;
 #define endl '\n';
 int n,r,q;
 vector<int> node;
-vector<int> vist;
 vector<vector<int>> list;
 int count(int x)
 {
-    if(node[x])
+    if(node[x])                 //값이 있을경우 해당값 가져오기
     {
-        return node[x];         //이미 구한 값이면 리턴
+        return node[x];         
     }
-    node[x]=1;                  //자기 자신도 포함
-    vist[x]=1;                  //방문처리
+    node[x]=1;                  //방문처리+ 자기자신도 포함임으로 1부터 시작
     for(auto li : list[x])      //연결되어 있는 노드탐색
     {
-        if(vist[li])            //방문처리 되어있으면 탐색x
+        if(node[li])            //값이 있을경우 탐색x
         {
             continue;
         }
@@ -35,9 +33,8 @@ int main()
 {
     fastio;
     cin >> n >> r >>q;
-    node.resize(n+1);           //가시성을 위해 1부터
+    node.resize(n+1);           
     list.resize(n+1);
-    vist.resize(n+1);
     for(int i=1;i<n;i++)
     {
         int x,y;
@@ -50,7 +47,7 @@ int main()
     {
         int x;
         cin >> x;
-        cout<<node[x]<<endl;     //나온값 호출출
+        cout<<node[x]<<endl;     //나온값 호출
     }
     return 0;
 }
